@@ -1,0 +1,2 @@
+def 1dLinear(before, after, percentage):
+    return (percentage * after) + ((1 - percentage) * before)

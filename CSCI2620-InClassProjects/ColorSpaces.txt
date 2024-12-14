@@ -1,0 +1,102 @@
+Think of RGB as a cube.
+Think of HSV as a cylinder.
+
+HSV
+    Hue:
+        Red = 0
+        Green = 120
+        Blue = 240
+
+
+HSV vs HSL vs HSB
+
+H & S are always the same (Hue and Saturation)
+
+Value vs Luminance vs Blackness
+
+Luminance has slight difference in how saturation is calculated
+
+Saturation
+    Determines the purity of a color
+    Pure colors are bright
+    Impure colors are closer to grayscale
+
+
+Value
+    is basically a scale white to black
+
+
+Convert RGB to HSV:
+
+    Range:
+        Common are [0, 255], [0, 1], [0, 360]
+        We will use [0, 1]
+
+        ** Try to implement [0, 2(pi)] **
+
+        Value = Max(r, g, b)/255
+
+        Saturation = (Max(r, g, b) - Min(r, g, b))/(Max(5, g, b)
+
+        diff = Max - Min
+
+        Saturation = diff/Max
+
+        Hue:
+            if red == max
+                baseAngle = 0
+                baseAngle = baseAngle + 60(g-b)/diff
+
+            if green == max
+                baseAngle = 120
+                baseAngle = baseAngle + 60(b - r)/diff
+
+            if blue == max
+                baseAngle = 240
+                baseAngle = baseAngle + 60(r - g)/diff
+
+
+
+
+YCBCR
+
+
+
+CMYK:
+
+    Subtractive Color Space
+
+    RGB to CMYK:
+
+        Range [0-1]
+
+        v = Max(r, g, b)
+
+        k = 1 - v
+
+        c = (1 - r - k)/(1 - k)
+
+        m = (1 - g - k)/(1 - k)
+
+        y = (1 - b - k)/(1 - k)
+
+        c = (v - r)/v
+        c = 1 - r/v
+
+        m = (v - g)/v
+        m = 1 - g/v
+
+        y = (v - b)/v
+        y = 1 - b/v
+
+
+
+    CMYK To RGB:
+
+        r = v - cv
+
+        g = v - mv
+
+        b = v - yv
+
+
